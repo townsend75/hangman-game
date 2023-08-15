@@ -13,9 +13,33 @@ words = ["kettle", "caterpiller", "antelope", "computer", "magnet", "telegraph",
 
 
 def getRandomWord():
+    """Retrieve a random word from the word list and print hyphens corresponding to number of letters in word"""
+
     word = random.choice(words)
     guessWord = "- " * len(word)
+    print("Guess the word...")
     print(guessWord)
+
+def userGuess():
+    """Evaluate user guess"""
+    userInput = ""
+
+    while True:
+
+        userInput = input("Enter a single letter\n").lower()
+
+        if userInput.isalpha() and len(userInput) == 1:
+            print(userInput)
+            break
+        else:
+            print("You may only enter a single letter of the alphabet! Please try again.\7")
+
+     
+    
+
+    
+
 
 
 getRandomWord()
+userGuess()
