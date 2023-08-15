@@ -9,11 +9,14 @@ print(f"Welcome to Hangman, {name}!")
 print("Guess the secret word, one letter at a time")
 print("But beware: after 10 incorrect guesses, you lose!")
 
-words = ["kettle", "caterpiller", "antelope", "computer", "magnet", "telegraph", "telescope", "butcher", "tradition", "envelope", "trivial", "extraterrestrial", "sausage"]
+words = ["kettle", "caterpiller", "antelope", "computer", "magnet",
+         "telegraph", "telescope", "butcher", "tradition", "envelope", 
+         "trivial", "extraterrestrial", "sausage"]
 
 
 def getRandomWord():
-    """Retrieve a random word from the word list and print hyphens corresponding to number of letters in word"""
+    """Retrieve a random word from the word list and 
+    print hyphens corresponding to number of letters in word"""
 
     word = random.choice(words)
     guessWord = "- " * len(word)
@@ -32,7 +35,11 @@ def userGuess():
             print(userInput)
             break
         else:
-            print("You may only enter a single letter of the alphabet! Please try again.\7")
+            print("You may only enter a single letter of the alphabet!")
+            print("Please try again")
+
+
+
 
      
     
