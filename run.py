@@ -13,19 +13,20 @@ words = ["kettle", "caterpiller", "antelope", "computer", "magnet",
          "telegraph", "telescope", "butcher", "tradition", "envelope", 
          "trivial", "extraterrestrial", "sausage"]
 
-lettersGuessed = []
+
 word = ""
 guess = ""
+
 
 def getRandomWord():
     """Retrieve a random word from the word list and 
     print hyphens corresponding to number of letters in word"""
 
     word = random.choice(words)
-    
+   
     #guessWord = "- " * len(word)
     print("Guess the word...")
-    print(word)
+    #print(word)
     
     
     return word
@@ -42,14 +43,15 @@ def userGuess():
 
         if guess.isalpha() and len(guess) == 1:
             print(guess)
+            break
 
         
-            break
+            
         else:
                 print("You may only enter a single letter of the alphabet!")
                 print("Please try again")
 
-    #print(f"You guessed {guess}")
+    print(f"You guessed {guess}")
     return guess 
     
 
@@ -64,14 +66,50 @@ def game(word):
     tries = 10
 
     print(currentGame)
-    print(guess)
-    print(word)
+    print(f"You have {tries} tries remaining.")
+    print("Guess a letter")
 
-    if guess in word:
-        print(word)
+    while not guessed and tries > 0:
+        if guess in lettersGuessed:
+            print("You have already tried that letter. Try again")
 
-    else:
-        print("No way Jose")   
+        elif guess not in word:
+            print("That letter is not in the word! Bad luck")
+            lettersGuessed.append(guess)
+            tries -= 1
+
+        else: 
+           for index, letter in enumerate(word):
+            if letter == guess:
+                currentGame[index] = letter
+
+        print(currentGame)              
+
+
+        #if guess in word:
+         #   print("Good guess!")
+          #  letterGuessed.append(guess)
+           # gameList = list(currentGame)
+            #print(lettersGuessed)
+            #print(gameList)
+
+        #else:
+         #   print("No way Jose")  """ 
+    
+def main():
+
+    word = getRandomWord()
+    userGuess()
+    game(word)
+
+main()    
+
+    
+
+
+
+
+       
     
     
     
@@ -92,8 +130,3 @@ def game(word):
 
     
 
-
-
-word = getRandomWord()
-userGuess()
-game(word)
