@@ -86,10 +86,17 @@ def game(word):
             else:
                 print(f"Good guess! {guess} is in the word:")  
                 lettersGuessed.append(guess)
-                for index, in enumerate(word):
-                    if index == guess:
-                       currentGame[index] = index
-                       print(currentGame)   
+                gameList = list(word)
+                for index, letter in enumerate(word):
+
+                    if letter == guess:
+                        gameList[index] = guess
+                        currentGame.replace("-",guess)
+                
+                
+            
+                print(gameList)   
+                print(currentGame)
             
             
             
