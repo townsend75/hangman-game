@@ -25,24 +25,24 @@ def getRandomWord():
     word = random.choice(words)
    
     #guessWord = "- " * len(word)
-    print("Guess the word...")
-    #print(word)
+    print("Let's play hangman...")
+    print(word)
     
     
     return word
     
     
 
-def userGuess():
-    """Evaluate user guess"""
-    guess = ""
+"""def userGuess():
+    Evaluate user guess
+    letter = ""
 
     while True:
 
-        guess = input("Enter a single letter\n").lower()
+        letter = input("Enter a single letter\n").lower()
 
-        if guess.isalpha() and len(guess) == 1:
-            print(guess)
+        if letter.isalpha() and len(letter) == 1:
+            print(letter)
             break
 
         
@@ -51,55 +51,68 @@ def userGuess():
                 print("You may only enter a single letter of the alphabet!")
                 print("Please try again")
 
-    print(f"You guessed {guess}")
-    return guess 
+    print(f"You guessed {letter}")
+    return letter"""
     
 
            
 
 def game(word): 
 
-    letterGuessed = []
+    lettersGuessed = []
     wordsGuessed = []
-    currentGame = "- " * len(word)
+    currentGame = ["- " * len(word)]
     guessed = False
     tries = 10
 
     print(currentGame)
     print(f"You have {tries} tries remaining.")
-    print("Guess a letter")
-
+    
     while not guessed and tries > 0:
-        if guess in lettersGuessed:
-            print("You have already tried that letter. Try again")
+        guess = input("Enter a letter of the alphabet...").lower()
 
-        elif guess not in word:
-            print("That letter is not in the word! Bad luck")
-            lettersGuessed.append(guess)
-            tries -= 1
+        if guess.isalpha() and len(guess) == 1:
+            if guess in lettersGuessed:
+                print("You have already guessed this letter")
 
-        else: 
-           for index, letter in enumerate(word):
-            if letter == guess:
-                currentGame[index] = letter
+            elif guess not in word:
+                print("This letter is not in the word")
+                lettersGuessed.append(guess)
+                tries -= 1
+                print(f"You have {tries} tries remaining")
+                print(lettersGuessed)
+                print(currentGame)
 
-        print(currentGame)              
+            else:
+                print(f"Good guess! {guess} is in the word:")  
+                lettersGuessed.append(guess)
+                for index, in enumerate(word):
+                    if index == guess:
+                       currentGame[index] = index
+                       print(currentGame)   
+            
+            
+            
+            
+                            
+
+        #elif len(guess) == len(word) and guess.isalpha():
+            
 
 
-        #if guess in word:
-         #   print("Good guess!")
-          #  letterGuessed.append(guess)
-           # gameList = list(currentGame)
-            #print(lettersGuessed)
-            #print(gameList)
 
-        #else:
-         #   print("No way Jose")  """ 
+        
+              
+        
+
+
+            
+           
     
 def main():
 
     word = getRandomWord()
-    userGuess()
+    #userGuess()
     game(word)
 
 main()    
