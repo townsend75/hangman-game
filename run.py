@@ -91,7 +91,7 @@ def game(word):
 
                     if letter == guess:
                         gameList[index] = guess
-                        currentGame.replace("-",guess)
+                        currentGame.append(guess)
                 
                 
             
@@ -103,14 +103,25 @@ def game(word):
             
                             
 
-        #elif len(guess) == len(word) and guess.isalpha():
+        elif len(guess) == len(word) and guess.isalpha():
+            if guess != word:
+                print(f"Unlucky, {guess}  is not the word. Have another go")
+                wordsGuessed.append
+                print(wordsGuessed)
+
+            else:
+                print("Congratulations! You solved the puzzle!")    
             
 
 
 
         
               
-        
+        #else:
+        #print("That is not a valid guess. Please try again")
+
+
+
 
 
             
