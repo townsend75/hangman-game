@@ -29,7 +29,7 @@ def getRandomWord():
     print(word)
     
     
-    return word
+    game(word)
     
     
 
@@ -58,10 +58,12 @@ def getRandomWord():
            
 
 def game(word): 
+    #"""The main game. Each chosen letter is evaluated until the word is #guessed or the number of triess reaches zero""""
 
     lettersGuessed = []
     wordsGuessed = []
-    currentGame = ["- " * len(word)]
+    currentGame = list("-" * len(word))
+    currentGame[0].split(",")
     guessed = False
     tries = 10
 
@@ -86,39 +88,58 @@ def game(word):
             else:
                 print(f"Good guess! {guess} is in the word:")  
                 lettersGuessed.append(guess)
-                gameList = list(word)
-                for index, letter in enumerate(word):
+                wordList = list(word)
+                
+                for index, letter in enumerate(wordList):
 
                     if letter == guess:
-                        gameList[index] = guess
-                        currentGame.append(guess)
-                
-                
-            
-                print(gameList)   
-                print(currentGame)
-            
-            
-            
-            
+                        print(index)
+                        currentGame.pop(index)
+                        currentGame.insert(index, guess)
                             
+                print(wordList)   
+                print(currentGame)
 
+                if "-" not in currentGame:
+                    print("Congrats, you won!")
+                    playAgain = input("Would you like to play again?\n(y/n)") 
+                    if playAgain == "y":
+                         getRandomWord()
+                        
+                    else:
+                        print("Thanks for playing!")
+                        break 
+                    
+             
         elif len(guess) == len(word) and guess.isalpha():
             if guess != word:
                 print(f"Unlucky, {guess}  is not the word. Have another go")
                 wordsGuessed.append
                 print(wordsGuessed)
+                tries -= 1
 
             else:
-                print("Congratulations! You solved the puzzle!")    
+                print("Congratulations! You solved the puzzle!") 
+                playAgain = input("Would you like to play again?\n(y/n)")  
+                if playAgain == "y":
+
+                     getRandomWord()
+                else:
+                    print("Thanks for playing!")
+                    break    
             
 
 
 
         
-              
-        #else:
-        #print("That is not a valid guess. Please try again")
+             
+        else:
+            print("That is not a valid guess. Please try again")
+
+
+
+        if tries == 0:
+            print("Bad luck you lost!")
 
 
 
@@ -129,9 +150,9 @@ def game(word):
     
 def main():
 
-    word = getRandomWord()
+    getRandomWord()
     #userGuess()
-    game(word)
+    
 
 main()    
 
