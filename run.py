@@ -4,61 +4,36 @@
 import random
 
 
-name = input("Please enter your name here: \n")
+name = input("Please enter your name here:")
+print()
 print(f"Welcome to Hangman, {name}!")
+print()
 print("Guess the secret word, one letter at a time")
+print("If you think you have solved it, guess the word!")
+print()
 print("But beware: after 10 incorrect guesses, you lose!\n")
+print()
 
 words = ["kettle", "caterpiller", "antelope", "computer", "magnet",
-         "telegraph", "telescope", "butcher", "tradition", "envelope", 
+         "telegraph", "telescope", "butcher", "tradition", "envelope",
          "trivial", "extraterrestrial", "sausage"]
 
 
-word = ""
-guess = ""
-
-
 def getRandomWord():
-    """Retrieve a random word from the word list and 
-    print hyphens corresponding to number of letters in word"""
+    # Retrieve a random word from the word list and
+    # print hyphens corresponding to number of letters in word"""
 
     word = random.choice(words)
-   
-    #guessWord = "- " * len(word)
-    print("Let's play hangman...")
-    print(word)
-    
-    
+    print("Let's play hangman...\n")
+    print("Fill in the blanks...\n")
+
     game(word)
-    
-    
+    print()
 
-"""def userGuess():
-    Evaluate user guess
-    letter = ""
 
-    while True:
-
-        letter = input("Enter a single letter\n").lower()
-
-        if letter.isalpha() and len(letter) == 1:
-            print(letter)
-            break
-
-        
-            
-        else:
-                print("You may only enter a single letter of the alphabet!")
-                print("Please try again")
-
-    print(f"You guessed {letter}")
-    return letter"""
-    
-
-           
-
-def game(word): 
-    #"""The main game. Each chosen letter is evaluated until the word is #guessed or the number of triess reaches zero""""
+def game(word):
+    # The main game. Each chosen letter is evaluated until the word is
+    # guessed or the number of triess reaches zero
 
     lettersGuessed = []
     wordsGuessed = []
@@ -67,118 +42,91 @@ def game(word):
     guessed = False
     tries = 10
 
-    print(currentGame)
+    print(*currentGame)
+    print()
     print(f"You have {tries} tries remaining.")
-    
+    print()
+
     while not guessed and tries > 0:
-        guess = input("Enter a letter of the alphabet...").lower()
+        guess = input("Enter a letter of the alphabet...\n").lower()
 
         if guess.isalpha() and len(guess) == 1:
             if guess in lettersGuessed:
                 print("You have already guessed this letter")
+                print()
 
             elif guess not in word:
                 print("This letter is not in the word")
                 lettersGuessed.append(guess)
                 tries -= 1
                 print(f"You have {tries} tries remaining")
-                print(lettersGuessed)
-                print(currentGame)
+                print()
+                print(f"You have already guessed these letters\n")
+                print()
+                print(*lettersGuessed)
+                print()
+                print(*currentGame)
 
             else:
-                print(f"Good guess! {guess} is in the word:")  
+                print(f"Good guess! {guess} is in the word:")
                 lettersGuessed.append(guess)
                 wordList = list(word)
-                
+
                 for index, letter in enumerate(wordList):
 
                     if letter == guess:
-                        print(index)
                         currentGame.pop(index)
                         currentGame.insert(index, guess)
-                            
-                print(wordList)   
-                print(currentGame)
+
+                print()    
+                print(*currentGame)
+                print()
 
                 if "-" not in currentGame:
                     print("Congrats, you won!")
-                    playAgain = input("Would you like to play again?\n(y/n)") 
+                    print()
+                    playAgain = input("Would you like to play again?\n(y/n)")
                     if playAgain == "y":
-                         getRandomWord()
-                        
+                        print()
+                        getRandomWord()
+
                     else:
                         print("Thanks for playing!")
-                        break 
-                    
-             
+                        break          
+          
         elif len(guess) == len(word) and guess.isalpha():
             if guess != word:
                 print(f"Unlucky, {guess}  is not the word. Have another go")
-                wordsGuessed.append
-                print(wordsGuessed)
+                print()
+                wordsGuessed.append(guess)
+                print("You have already guessed these words:")
+                print(*wordsGuessed)
                 tries -= 1
 
             else:
-                print("Congratulations! You solved the puzzle!") 
-                playAgain = input("Would you like to play again?\n(y/n)")  
+                print("Congratulations! You solved the puzzle!")
+                print()
+                playAgain = input("Would you like to play again?\n(y/n)")
+                print()
                 if playAgain == "y":
+                    print()
 
-                     getRandomWord()
+                    getRandomWord()
                 else:
                     print("Thanks for playing!")
-                    break    
-            
-
-
-
-        
-             
+                    break     
         else:
             print("That is not a valid guess. Please try again")
-
-
 
         if tries == 0:
             print("Bad luck you lost!")
 
 
-
-
-
-            
-           
-    
 def main():
 
     getRandomWord()
-    #userGuess()
-    
+  
 
-main()    
-
-    
-
-
-
-
-       
-    
-    
-    
-            
-            
-
-
-
-
-
-
-
-
-
-
-     
-    
-
-    
-
+main()
+print()
+print("\n")
