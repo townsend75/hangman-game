@@ -4,7 +4,7 @@
 import random
 
 
-# This section welcomes the player to the game 
+# This section welcomes the player to the game
 # and explains the rules.
 print("-----------------------------------------------")
 
@@ -14,7 +14,7 @@ print(f"Welcome to Hangman, {name}\n")
 print("Guess the secret word, one letter at a time\n")
 print("If you think you have solved it, guess the word!\n")
 print("But beware: after 10 incorrect guesses, you lose!\n")
-print()
+
 
 words = ["KETTLE", "CATERPILLER", "ANTELOPE", "COMPUTER", "MAGNET",
          "TELEGRAPH", "TELESCOPE", "BUTCHER", "TRADITION", "ENVELOPE",
@@ -30,7 +30,7 @@ def getRandomWord():
     print()
     print("Let's play hangman...\n")
     print("Fill in the blanks...\n")
-    print(f"The word has {len(word)} letters \n")
+    print(f"The word has {len(word)} letters. \n")
 
     game(word)
     print()
@@ -50,7 +50,6 @@ def game(word):
     print(*currentGame)
     print()
     print(f"You have {tries} tries remaining.\n\n")
-    
 
     while not guessed and tries > 0:
         guess = input("Enter a letter of the alphabet...\n\n").upper()
@@ -59,7 +58,6 @@ def game(word):
             if guess in lettersGuessed:
                 print()
                 print("You have already guessed this letter\n\n")
-                
 
             elif guess not in word:
                 print()
@@ -84,10 +82,8 @@ def game(word):
                     if letter == guess:
                         currentGame.pop(index)
                         currentGame.insert(index, guess)
-
-                
-                print(*currentGame)
-                print()
+                        print(*currentGame)
+                        print()
 
                 if "-" not in currentGame:
                     print("Congrats, you won!")
@@ -99,15 +95,20 @@ def game(word):
 
                     else:
                         print("Thanks for playing!")
-                        break          
-          
+                        break
+
         elif len(guess) == len(word) and guess.isalpha():
             if guess != word:
-                print(f"Unlucky, {guess}  is not the word. Have another go\n\\n")
+                print(f"Unlucky, {guess}  is not the word.\n\\n")
                 wordsGuessed.append(guess)
                 print("You have already guessed these words:\n\n")
                 print(*wordsGuessed)
                 tries -= 1
+
+            elif guess in wordGuessed:
+                print()
+                print("You have already guessed this word\n")
+                print(*wordsGuessed)    
 
             else:
                 print("Congratulations! You solved the puzzle!")
@@ -120,7 +121,7 @@ def game(word):
                     getRandomWord()
                 else:
                     print("Thanks for playing!\n")
-                    break     
+                    break
         else:
             print("That is not a valid guess. Please try again\n\n")
 
@@ -133,7 +134,7 @@ def game(word):
                 getRandomWord()
             else:
                 print("Thanks for playing!\n")
-                break   
+                break
 
 
 def main():
@@ -141,7 +142,7 @@ def main():
     # first play.
 
     getRandomWord()
-  
+
 
 main()
-print("\n")
+print()
