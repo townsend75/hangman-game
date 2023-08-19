@@ -10,12 +10,9 @@ print("-----------------------------------------------")
 
 name = input("Please enter your name here: \n")
 
-print()
-print(f"Welcome to Hangman, {name}!")
-print()
-print("Guess the secret word, one letter at a time")
-print("If you think you have solved it, guess the word!")
-print()
+print(f"Welcome to Hangman, {name}\n")
+print("Guess the secret word, one letter at a time\n")
+print("If you think you have solved it, guess the word!\n")
 print("But beware: after 10 incorrect guesses, you lose!\n")
 print()
 
@@ -31,11 +28,9 @@ def getRandomWord():
     word = random.choice(words)
     print("-----------------------------------------------")
     print()
-    print("Let's play hangman...\n\n")
-    
-    print("Fill in the blanks...\n\n")
-    
-    print(f"The word has {len(word)} letters \n\n")
+    print("Let's play hangman...\n")
+    print("Fill in the blanks...\n")
+    print(f"The word has {len(word)} letters \n")
 
     game(word)
     print()
@@ -131,7 +126,6 @@ def game(word):
 
         if tries == 0:
             print("Bad luck you lost!\n\n")
-            print()
             playAgain = input("Would you like to play again?\n\n(y/n)\n")
             if playAgain == "y":
                 print()
