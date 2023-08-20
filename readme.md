@@ -54,3 +54,14 @@ The hangman idea came from a website listing first python project ideas. [link t
 
 Thanks again to my mentor, Sheryl, who always manages to calm me down and get me on the right track, without ever directly feeding me the answer!
 
+## Deployment
+
+The game is deployed on the Code institue Heroku mock terminal. 
+Steps for deployment:
+- Copy repository from Github.
+- Create a new account and then a new application on Heroku
+- Set the buildpacks python and NodeJs in that order
+-Link the heroku app to the repository
+-Delpoy the app on Heroku
+
+

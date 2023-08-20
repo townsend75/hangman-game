@@ -6,6 +6,7 @@ import random
 
 # This section welcomes the player to the game
 # and explains the rules.
+
 print("-----------------------------------------------")
 
 name = input("Please enter your name here: \n")
@@ -105,10 +106,10 @@ def game(word):
                 print(*wordsGuessed)
                 tries -= 1
 
-            elif guess in wordGuessed:
+            elif guess in wordsGuessed:
                 print()
                 print("You have already guessed this word\n")
-                print(*wordsGuessed)    
+                print(*wordsGuessed)
 
             else:
                 print("Congratulations! You solved the puzzle!")
