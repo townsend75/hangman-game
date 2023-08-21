@@ -5,6 +5,7 @@ import random
 
 # The hangman class sets the variables which will be used during the game
 
+
 class Hangman:
 
     def __init__(self, words, lettersGuessed, wordsGuessed, guessed, tries):

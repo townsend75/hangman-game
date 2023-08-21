@@ -43,6 +43,10 @@ If I were to implement this hangman game in a front end application, my target a
 
 In a front end application, I would include a score counter to keep track of games won and lost. I would also use a simple graphic of the hangman steps, as we know from the pen and paper game. The word list could also be expanded ad infinitum. 
 
+## Testing
+
+see separate document
+
 ## Credits
 
 My mentor, Sherly Goldberg was very helpful in guiding me to the correct solution for replacing the blanks with a correctly guessed letter. 
@@ -63,5 +67,10 @@ Steps for deployment:
 - Set the buildpacks python and NodeJs in that order
 -Link the heroku app to the repository
 -Delpoy the app on Heroku
+
+## Notes
+I last managed to reach my mentor on Thursday, where we went through my code and she felt everything was moving in the right direction. I then noticed the inclusion of a class data method in the Code Institue battleships video. Until this point, I hadn't included a data method in my game and the game worked perfectly well. Unfortunately, i have not been able to reach my mentor for guidance over the last four days (I'm sure she has a valid reason). I have added the data method but please note that it is added retrospectively. 
+
+
 
 

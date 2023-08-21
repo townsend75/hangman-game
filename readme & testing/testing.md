@@ -23,4 +23,9 @@ The code was run through the PEP8 Python validator and received the result "all 
 | play again? y | game restarts| works as expected|
  | play again? n | message: thank you for playing | works as expected
 
+
+ ## Bugs
+
+ When deployed in the CodeAnywhere terminal, if a word contains more than one of a guessed letter, all examples of the letter are added to the word correctly. in the heroku app, the letters are added correctly, but the word is printed twice for two occurences of a letter, three for three etc. I have not found out why this is the case. 
+
  
