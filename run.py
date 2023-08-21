@@ -3,6 +3,17 @@
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 import random
 
+# The hangman class sets the variables which will be used during the game
+
+class Hangman:
+
+    def __init__(self, words, lettersGuessed, wordsGuessed, guessed, tries):
+        self.words = words
+        self.lettersGuessed = lettersGuessed
+        self.wordsGuessed = wordsGuessed
+        self.guessed = guessed
+        self.tries = tries
+
 
 # This section welcomes the player to the game
 # and explains the rules.
@@ -11,10 +22,10 @@ print("-----------------------------------------------")
 
 name = input("Please enter your name here: \n")
 
-print(f"Welcome to Hangman, {name}\n")
-print("Guess the secret word, one letter at a time\n")
-print("If you think you have solved it, guess the word!\n")
-print("But beware: after 10 incorrect guesses, you lose!\n")
+print((f"Welcome to Hangman, {name}, "
+      "Guess the secret word, one letter at a time, "
+       "If you think you have solved it, guess the word! "
+       "But beware: after 10 incorrect guesses, you lose!"))
 
 
 words = ["KETTLE", "CATERPILLER", "ANTELOPE", "COMPUTER", "MAGNET",
@@ -29,9 +40,9 @@ def getRandomWord():
     word = random.choice(words)
     print("-----------------------------------------------")
     print()
-    print("Let's play hangman...\n")
-    print("Fill in the blanks...\n")
-    print(f"The word has {len(word)} letters. \n")
+    print(("Let's play hangman...\n"
+          "Fill in the blanks...\n"))
+    print(f"The word has {len(word)} letters.\n")
 
     game(word)
     print()

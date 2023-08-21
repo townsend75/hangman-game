@@ -9,6 +9,7 @@ The code was run through the PEP8 Python validator and received the result "all 
 ## User testing
 
 | Action | Expected result | Actual result |
+|---|---|---|
 | input name | Name appears in greeting| works as expected|
 |input number | warning that the input is incorrect| works as expected|
 | input two letters |warning that the input is incorrect| works as expected|

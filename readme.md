@@ -23,7 +23,7 @@ The player wins if they can guess the word within the allotted number of tries.
 
 -They are then personally welcomed to the game and the rules are explained:
 
-[Welcome message](images/Welcome%20message.jpg)
+![Welcome message](images/Welcome%20message.jpg)
 
 -Random word selection from list
 - Validation errors for when input is not a letter of the alphabet
@@ -31,7 +31,7 @@ The player wins if they can guess the word within the allotted number of tries.
 - Number of tries limited and counted down when guess is false
 - Whether game is won or lost, player is asked if they would like to try again
 
-[Link to play again question](images/Hangman%20Play%20Again.jpg)
+![Link to play again question](images/Hangman%20Play%20Again.jpg)
 
 
 
@@ -45,7 +45,7 @@ In a front end application, I would include a score counter to keep track of gam
 
 ## Credits
 
-My mentor, Sherly Goldberg was very helpful n guiding me to the correct solution for replacing the blanks with a correctly guessed letter. 
+My mentor, Sherly Goldberg was very helpful in guiding me to the correct solution for replacing the blanks with a correctly guessed letter. 
 I discovered the asterisk - print(*currentGame) - solution to remove parentheses from lists on the stackoverflow website. 
 I use google a lot to check syntax if something doesn't work- the correect syntax for checking the length of a word, for example. 
 The hangman idea came from a website listing first python project ideas. [link to website](https://www.upgrad.com/blog/python-projects-ideas-topics-beginners/)
